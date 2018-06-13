@@ -8,22 +8,25 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--注解扫描-->
     <mvc:annotation-driven/>
+    <!--包扫描，只扫描视图层包-->
     <context:component-scan base-package="com.zhang" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation"
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
-
+    <!--视图解析配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/modules/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!--默认servlet-->
     <mvc:default-servlet-handler/>
-    <!--<mvc:view-controller path="/" view-name="redirect:/"/>-->
+    <!--静态资源映射配置-->
     <mvc:resources mapping="/static/css/**" location="/static/css/" cache-period="86400"/>
     <mvc:resources mapping="/static/js/**" location="/static/js/" cache-period="86400"/>
     <mvc:resources mapping="/static/html/**" location="/static/html/" cache-period="86400"/>
     <mvc:resources mapping="/static/img/**" location="/static/img/" cache-period="86400"/>
-   <!-- <mvc:view-controller path="/example" />-->
+
 </beans>

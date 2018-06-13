@@ -31,10 +31,10 @@
                     </td>
                     <td><s:formatDate value="${user.createDate}" pattern="yyyy-MM-dd"/></td>
                     <td id="btn" style="text-align: center">
-                        <div class="btn-group">
+
                           <%--  <a class="btn btn-mini" href="${ctxPath}/user/edit?id=${user.id}">修改</a>--%>
-                            <a class="btn btn-mini" href="${ctxPath}/user/get?id=${user.id}">查看</a>
-                        </div>
+                            <a href="${ctxPath}/user/get?id=${user.id}">详情</a>
+
                     </td>
                 </tr>
             </c:forEach>

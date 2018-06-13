@@ -23,7 +23,7 @@
                     <a class="brand" href="${ctxPath}/"><b>CarSharing</b></a>
                     <ul class="nav nav_ul">
                         <li class="active"><a href="${ctxPath}/map/map">地图</a></li>
-                        <li><a href="${ctxPath}/user/list">车主</a></li>
+                        <li><a href="${ctxPath}/user/list">车辆</a></li>
                         <li><a href="#">乘客</a></li>
                     </ul>
                     <a id="login" class="nav" href="#">登陆/注册</a>

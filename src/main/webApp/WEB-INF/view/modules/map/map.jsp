@@ -11,7 +11,7 @@
 </head>
 <body>
     <ul class="nav nav-tabs">
-        <li class="active"><a href="${ctxPath}/map/map">车主分布</a></li>
+        <li class="active"><a href="${ctxPath}/map/map">车辆分布</a></li>
     </ul>
     <div id="map"></div>
 </body>
