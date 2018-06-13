@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--连接池-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--设置连接池-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--配置文件位置-->
+        <property name="configLocation" value="classpath:/mybatis.cfg.xml"/>
+        <!--设置扫描mapper配置文件位置-->
+        <property name="mapperLocations" value="classpath*:/mappings/**/*.xml"/>
+    </bean>
+    <!--接口扫描器配置-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zhang.modules"/>
+        <!--设置扫描位置所对应注解的接口-->
+        <property name="annotationClass" value="com.zhang.modules.common.annotation.Mybatis"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+</beans>
