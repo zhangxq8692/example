@@ -10,10 +10,51 @@ Target Server Type    : MYSQL
 Target Server Version : 50537
 File Encoding         : 65001
 
-Date: 2018-06-13 00:30:43
+Date: 2018-06-13 18:17:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for sys_point
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_point`;
+CREATE TABLE `sys_point` (
+  `id` varchar(32) NOT NULL,
+  `point` varchar(32) NOT NULL,
+  `sharing_id` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sys_point_ibfk_1` (`sharing_id`),
+  CONSTRAINT `sys_point_ibfk_1` FOREIGN KEY (`sharing_id`) REFERENCES `sys_sharing` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_point
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for sys_sharing
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_sharing`;
+CREATE TABLE `sys_sharing` (
+  `id` varchar(32) NOT NULL,
+  `user_id` varchar(32) NOT NULL,
+  `depart_addr` varchar(40) NOT NULL COMMENT '出发地',
+  `destination` varchar(40) NOT NULL COMMENT '目的地',
+  `depart_date` date NOT NULL COMMENT '出发时间',
+  `latest_date` date DEFAULT NULL COMMENT '最迟出发时间',
+  `announce_date` date NOT NULL COMMENT '发布时间',
+  `sum_person` int(11) NOT NULL COMMENT '可坐人数',
+  `exist_person` int(11) DEFAULT '0' COMMENT '已有人数',
+  `remark` varchar(120) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `sys_sharing_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_sharing
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_user
