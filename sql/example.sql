@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50537
 File Encoding         : 65001
 
-Date: 2018-06-13 18:17:51
+Date: 2018-06-15 02:03:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,16 +21,21 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `sys_point`;
 CREATE TABLE `sys_point` (
   `id` varchar(32) NOT NULL,
-  `point` varchar(32) NOT NULL,
+  `p_lng` varchar(12) NOT NULL COMMENT '地理经度',
+  `p_lat` varchar(12) NOT NULL COMMENT '地理纬度',
   `sharing_id` varchar(32) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_flag` char(1) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `sys_point_ibfk_1` (`sharing_id`),
-  CONSTRAINT `sys_point_ibfk_1` FOREIGN KEY (`sharing_id`) REFERENCES `sys_sharing` (`id`)
+  KEY `sys_point_ibfk_1` (`sharing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_point
 -- ----------------------------
+INSERT INTO `sys_point` VALUES ('5ba51a57644b46e8bb42fec41bc84931', '104.692701', '31.468913', '1001', '2018-06-14 13:57:56', '2018-06-19 15:56:34', '0');
+INSERT INTO `sys_point` VALUES ('5ba51a57644b46e8bb42fec41bc84932', '104.683219', '31.464501', '1002', '2018-06-14 13:57:56', '2018-06-04 15:56:28', '0');
 
 -- ----------------------------
 -- Table structure for sys_sharing
@@ -47,7 +52,7 @@ CREATE TABLE `sys_sharing` (
   `sum_person` int(11) NOT NULL COMMENT '可坐人数',
   `exist_person` int(11) DEFAULT '0' COMMENT '已有人数',
   `remark` varchar(120) DEFAULT NULL COMMENT '备注',
-  `create_date` datetime DEFAULT NULL,
+  `create_date` datetime NOT NULL,
   `update_date` datetime DEFAULT NULL,
   `update_flag` char(1) NOT NULL,
   PRIMARY KEY (`id`),
