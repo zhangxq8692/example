@@ -12,7 +12,7 @@
         update_date,
         update_flag
     </sql>
-    <select id="findbyId" resultType="user" useCache="true">
+    <select id="findById" resultType="user" useCache="true">
         SELECT
           <include refid="column"/>
         FROM

@@ -10,7 +10,7 @@
     </ul>
     <%--@elvariable id="result" type="java.util.List"--%>
     <form>
-        <table class="table table-striped table-hover table-condensed table-bordered" id="table">
+        <table class="table table-striped table-hover table-condensed" id="table">
             <tr class="info">
                 <td style="width: 15%">姓名</td>
                 <td style="width: 10%">年龄</td>
@@ -44,11 +44,11 @@
         <div class="pagination">
             <ul>
                 <li><a href="#">上一页</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
+               <%-- <li class="active"><a href="#">1</a></li>--%>
+           <%--     <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                <li><a href="#">5</a></li>--%>
                 <li><a href="#">下一页</a></li>
             </ul>
         </div>

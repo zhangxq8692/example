@@ -14,7 +14,7 @@ public interface BaseDao<T>{
      * @param t 指定数据条件参数
      * @return 数据实体
      */
-    public T findbyId(T t);
+    public T findById(T t);
 
     /**
      * 获取数据列表

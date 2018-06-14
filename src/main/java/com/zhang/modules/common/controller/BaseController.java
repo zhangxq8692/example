@@ -51,6 +51,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      * @param model
      * @return 视图名
      */
+
     @RequestMapping("/list")
     public String list(Model model) {
         List<T> list = service.list();

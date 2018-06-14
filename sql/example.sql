@@ -47,6 +47,9 @@ CREATE TABLE `sys_sharing` (
   `sum_person` int(11) NOT NULL COMMENT '可坐人数',
   `exist_person` int(11) DEFAULT '0' COMMENT '已有人数',
   `remark` varchar(120) DEFAULT NULL COMMENT '备注',
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_flag` char(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `sys_sharing_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`)

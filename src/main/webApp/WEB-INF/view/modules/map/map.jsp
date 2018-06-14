@@ -17,6 +17,7 @@
 </body>
 <script type="text/javascript">
     var map = new BMap.Map("map");
+    map.setMapStyle({style:'googlelite'});
     var point = new BMap.Point(116.331398,39.897445);
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     map.centerAndZoom(point,5);
@@ -26,21 +27,31 @@
         var cityName = result.name;
         map.setCenter(cityName);
         map.setZoom(14);
-
-        getCarInfoList(cityName);
+        getCarInfoList(map);
     }
     /*创建获取位置信息对象*/
     var myCity = new BMap.LocalCity();
     myCity.get(myFun);
     /*获取所有车主位置信息*/
-    function getCarInfoList(city) {
-        $.ajax({
-            uri:"${ctxPath}/carPoints",
-            type:'POST',
-            data:{'city':city},
-            dataType:'json',
-            success:function (data){
 
+    function getCarInfoList(map) {
+        $.ajax({
+            url:"${ctxPath}/map/pints",
+            type:"POST",
+           /* data:提交请求参数,*/
+            dataType:"json",
+            async:true,
+            success:function(data) {
+                for (var i=0;i<data.length;i++){
+                    var marker = new BMap.Marker(new BMap.Point(data[i].pLng, data[i].pLat)); // 创建点
+                    map.addOverlay(marker);
+                    marker.setTitle(data[i].sharingId);
+                    marker.addEventListener("click",attribute(marker));
+                }
+                function attribute(e){
+                    var p = e.getTitle();  //获取marker的位置
+                    alert("ID" + p);
+                }
             }
         });
     }

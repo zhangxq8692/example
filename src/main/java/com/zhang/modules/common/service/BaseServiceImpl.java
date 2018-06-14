@@ -25,7 +25,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity,D extends BaseDao<T>>
      * @return 数据实体
      */
     public T get(T t) {
-        return dao.findbyId(t);
+        return dao.findById(t);
     }
 
     /**
