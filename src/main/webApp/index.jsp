@@ -22,8 +22,8 @@
                 <div class="container">
                     <a class="brand" href="${ctxPath}/"><b>CarSharing</b></a>
                     <ul class="nav nav_ul">
-                        <li class="active"><a href="${ctxPath}/map/map">地图</a></li>
-                        <li><a href="${ctxPath}/user/list">车辆</a></li>
+                        <li class="active"><a href="${ctxPath}/coord/map">地图</a></li>
+                        <li><a href="${ctxPath}/car/list">车辆</a></li>
                         <li><a href="#">乘客</a></li>
                     </ul>
                     <a id="login" class="nav" href="#">登陆/注册</a>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="span1"></div>
             <div class="span10">
-                <iframe src="${ctxPath}/map/map"  marginheight="20px" height="100%" width="100%" scrolling="no" frameborder="0">
+                <iframe src="${ctxPath}/coord/map"  marginheight="20px" height="100%" width="100%" scrolling="no" frameborder="0">
                 </iframe>
             </div>
         </div>

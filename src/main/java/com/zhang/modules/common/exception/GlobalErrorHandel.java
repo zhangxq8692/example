@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * @Auther: Administrator
  * @Date: 2018/6/7 0007 21:41
- * @Description:
+ * @Description: 全局错误处理类
  */
 
 public class GlobalErrorHandel implements HandlerExceptionResolver {

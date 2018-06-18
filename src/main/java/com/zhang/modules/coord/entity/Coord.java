@@ -1,4 +1,4 @@
-package com.zhang.modules.map.entity;
+package com.zhang.modules.coord.entity;
 
 import com.zhang.modules.common.entity.BaseEntity;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Date: 2018/6/10 0010 18:33
  * @Description:
  */
-public class WebMap extends BaseEntity implements Serializable {
+public class Coord extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 8256634557837883091L;
     /**
      * 经度
@@ -22,7 +22,7 @@ public class WebMap extends BaseEntity implements Serializable {
     /**
      * 车辆详情id
      */
-    private String sharingId;
+    private String carId;
 
     public String getpLng() {
         return pLng;
@@ -40,11 +40,11 @@ public class WebMap extends BaseEntity implements Serializable {
         this.pLat = pLat;
     }
 
-    public String getSharingId() {
-        return sharingId;
+    public String getCarId() {
+        return carId;
     }
 
-    public void setSharingId(String sharingId) {
-        this.sharingId = sharingId;
+    public void setCarId(String carId) {
+        this.carId = carId;
     }
 }

@@ -1,8 +1,8 @@
-package com.zhang.modules.map.service;
+package com.zhang.modules.coord.service;
 
 import com.zhang.modules.common.service.BaseServiceImpl;
-import com.zhang.modules.map.dao.WebMapDao;
-import com.zhang.modules.map.entity.WebMap;
+import com.zhang.modules.coord.dao.CoordDao;
+import com.zhang.modules.coord.entity.Coord;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @Description:
  */
 @Service
-public class WebMapServiceImpl extends BaseServiceImpl<WebMap,WebMapDao> implements WebMapService {
+public class CoordServiceImpl extends BaseServiceImpl<Coord,CoordDao> implements CoordService {
     /*@Autowired
     private WebMapDao dao;*/
 }

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
-        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="com.zhang.modules.map.dao.WebMapDao">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhang.modules.coord.dao.CoordDao">
     <sql id="column">
         id,
         p_lng,
         p_lat,
-        sharing_id,
+        car_id,
         create_date,
         update_date,
         update_flag
     </sql>
-    <select id="findById" resultType="webMap" useCache="true">
+    <select id="findById" resultType="coord" useCache="true">
         SELECT
           <include refid="column"/>
         FROM
-          sys_point
+          sys_coord
         WHERE
           id=#{id}
     </select>
-    <select id="findAll" resultType="webMap">
+    <select id="findAll" resultType="coord">
         SELECT
           <include refid="column"/>
         FROM
-          sys_point
+          sys_coord
     </select>
     <update id="update">
-        UPDATE sys_point SET
+        UPDATE sys_coord SET
         p_lng=#{pLng},
         p_lat=#{pLat},
-        sharing_id=#{sharingId},
+        car_id=#{carId},
         create_date=#{createDate},
         update_date=#{updateDate},
         update_flag=#{updateFlag}
@@ -38,10 +38,10 @@
         </where>
     </update>
     <delete id="delete">
-        DELETE FROM sys_point WHERE id=#{id}
+        DELETE FROM sys_coord WHERE id=#{id}
     </delete>
     <insert id="insert">
-        insert into sys_point
+        insert into sys_coord
         (
         <include refid="column"/>
         )
@@ -50,7 +50,7 @@
         #{id},
         #{pLng},
         #{pLat},
-        #{sharingId},
+        #{carId},
         #{createDate},
         #{updateDate},
         #{updateFlag}

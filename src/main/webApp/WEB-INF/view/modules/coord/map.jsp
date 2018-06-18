@@ -17,7 +17,7 @@
 </head>
 <body>
 <ul class="nav nav-tabs">
-    <li class="active"><a href="${ctxPath}/map/map">车辆分布</a></li>
+    <li class="active"><a href="${ctxPath}/coord/map">车辆分布</a></li>
 </ul>
 <div id="map"></div>
 </body>
@@ -43,7 +43,7 @@
 
     function getCarInfoList(map) {
         $.ajax({
-            url: "${ctxPath}/map/pints",
+            url: "${ctxPath}/coord/pints",
             type: "POST",
             /* data:提交请求参数,*/
             dataType: "json",

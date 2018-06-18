@@ -1,8 +1,8 @@
-package com.zhang.modules.map.dao;
+package com.zhang.modules.coord.dao;
 
 import com.zhang.modules.common.annotation.Mybatis;
 import com.zhang.modules.common.dao.BaseDao;
-import com.zhang.modules.map.entity.WebMap;
+import com.zhang.modules.coord.entity.Coord;
 
 /**
  * @Auther: Administrator
@@ -10,6 +10,6 @@ import com.zhang.modules.map.entity.WebMap;
  * @Description:
  */
 @Mybatis
-public interface WebMapDao extends BaseDao<WebMap> {
+public interface CoordDao extends BaseDao<Coord> {
 
 }
