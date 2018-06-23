@@ -12,7 +12,7 @@ public class RandomUUID {
      * 创建新的数据ID
      * @return ID
      */
-    public static String newUUID(){
+    public synchronized static String newUUID(){
         UUID uuid = UUID.randomUUID();
         return uuid.toString().replaceAll("-","");
     }

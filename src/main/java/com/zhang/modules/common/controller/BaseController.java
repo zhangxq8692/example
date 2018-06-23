@@ -39,10 +39,10 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      * @param t 实体参数
      * @return 实体类
      */
-    @RequestMapping("/get")
+    @RequestMapping("/from")
     public String findById(@ModelAttribute("entity") T t,Model model) {
-        model.addAttribute(getModelPath(),t);
-        return getModelPath() + "/form";
+        model.addAttribute(getModelName(),t);
+        return getModelName() + "/form";
     }
 
     /**
@@ -56,7 +56,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
     public String list(Model model) {
         List<T> list = service.list();
         model.addAttribute("result", list);
-        return getModelPath() + "/list";
+        return getModelName() + "/list";
     }
 
     /**
@@ -73,7 +73,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
         } else {
             model.addFlashAttribute("msg", "更新失败");
         }
-        return "redirect:" + getModelPath() + "/list";
+        return "redirect:" + getModelName() + "/list";
     }
 
     /**
@@ -90,7 +90,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
         } else {
             model.addFlashAttribute("msg", "删除失败");
         }
-        return "redirect:" + getModelPath() + "/list";
+        return "redirect:" + getModelName() + "/list";
     }
 
     /**
@@ -107,7 +107,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
         } else {
             model.addFlashAttribute("msg", "添加失败");
         }
-        return "redirect:" + getModelPath() + "/list";
+        return "redirect:" + getModelName() + "/list";
     }
 
     /**
@@ -115,7 +115,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      *
      * @return 模块路径
      */
-    protected String getModelPath() {
+    protected String getModelName() {
         RequestMapping annotation = this.getClass().getAnnotation(RequestMapping.class);
         return annotation.value()[0];
     }
