@@ -12,10 +12,12 @@
       announce_date,
       sum_person,
       exist_person,
+      p_lng,
+      p_lat,
       remark,
       create_date,
       update_date,
-      update_flag
+      delete_flag
     </sql>
     <select id="findById" resultType="car" useCache="true">
         SELECT
@@ -30,6 +32,9 @@
           <include refid="column"/>
         FROM
           sys_car
+        <where>
+            delete_flag='0'
+        </where>
     </select>
     <update id="update">
         UPDATE sys_car SET
@@ -41,10 +46,12 @@
         announce_date =   #{announceDate},
         sum_person    =   #{sumPerson},
         exist_person  =   #{existPerson},
+        p_lng         =   #{pLng},
+        p_lat         =   #{pLat},
         remark        =   #{remark},
         create_date   =   #{createDate},
         update_date   =   #{updateDate},
-        update_flag   =   #{updateFlag}
+        delete_flag   =   #{deleteFlag}
         <where>
             id=#{id}
         </where>
@@ -53,7 +60,7 @@
         DELETE FROM sys_point WHERE id=#{id}
     </delete>
     <insert id="insert">
-        insert into sys_point
+        insert into sys_car
         (
             <include refid="column"/>
         )
@@ -68,10 +75,12 @@
             #{announceDate},
             #{sumPerson},
             #{existPerson},
+            #{pLng},
+            #{pLat},
             #{remark},
             #{createDate},
             #{updateDate},
-            #{updateFlag}
+            #{deleteFlag}
         )
     </insert>
 </mapper>

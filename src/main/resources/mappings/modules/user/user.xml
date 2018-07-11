@@ -4,15 +4,18 @@
 <mapper namespace="com.zhang.modules.user.dao.UserDao">
 
     <sql id="column">
-        id,
-        name,
-        age,
-        sex,
-        create_date,
-        update_date,
-        update_flag
+        `id`,
+        `name`,
+        `age`,
+        `sex`,
+        `card`,
+        `type`,
+        `phone`,
+        `create_date`,
+        `update_date`,
+        `delete_flag`
     </sql>
-    <select id="findById" resultType="user" useCache="true">
+    <select id="findById" resultType="userInfo" useCache="true">
         SELECT
           <include refid="column"/>
         FROM
@@ -21,7 +24,7 @@
             id=#{id}
         </where>
     </select>
-    <select id="findAll" resultType="user">
+    <select id="findAll" resultType="userInfo">
         SELECT
             <include refid="column"/>
         FROM
@@ -32,9 +35,12 @@
         name=#{name},
         age=#{age},
         sex=#{sex},
+        card=#{card},
+        type=#{type},
+        phone=#{phone},
         create_date=#{createDate},
         update_date=#{updateDate},
-        update_flag=#{updateFlag}
+        delete_flag=#{deleteFlag}
         <where>
             id=#{id}
         </where>
@@ -53,9 +59,12 @@
             #{name},
             #{age},
             #{sex},
+            #{card},
+            #{type},
+            #{phone},
             #{createDate},
             #{updateDate},
-            #{updateFlag}
+            #{deleteFlag}
         )
     </insert>
 </mapper>

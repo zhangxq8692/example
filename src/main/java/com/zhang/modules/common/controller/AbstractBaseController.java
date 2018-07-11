@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.List;
  * @Description: 基本控制器
  */
 
-public abstract class BaseController<T extends BaseEntity,S extends BaseService<T>> {
+public abstract class AbstractBaseController<T extends BaseEntity,S extends BaseService<T>> {
 
     /*
      * 基本service对象
@@ -39,7 +38,6 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      * @param t 实体参数
      * @return 实体类
      */
-    @RequestMapping("/from")
     public String findById(@ModelAttribute("entity") T t,Model model) {
         model.addAttribute(getModelName(),t);
         return getModelName() + "/form";
@@ -51,8 +49,6 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      * @param model
      * @return 视图名
      */
-
-    @RequestMapping("/list")
     public String list(Model model) {
         List<T> list = service.list();
         model.addAttribute("result", list);
@@ -65,7 +61,6 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      * @param t 数据对象
      * @return 更新后的视图
      */
-    @RequestMapping(value = "/update")
     public String update(@ModelAttribute(value = "entity") T t, RedirectAttributes model) {
         boolean succeed = service.update(t);
         if (succeed) {
@@ -73,7 +68,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
         } else {
             model.addFlashAttribute("msg", "更新失败");
         }
-        return "redirect:" + getModelName() + "/list";
+        return "redirect:/" + getModelName() + "/list";
     }
 
     /**
@@ -82,7 +77,6 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
      * @param t 数据对象
      * @return 删除后回显视图
      */
-    @RequestMapping("/delete")
     public String delete(T t, RedirectAttributes model) {
         boolean succeed = service.delete(t);
         if (succeed) {
@@ -90,24 +84,7 @@ public abstract class BaseController<T extends BaseEntity,S extends BaseService<
         } else {
             model.addFlashAttribute("msg", "删除失败");
         }
-        return "redirect:" + getModelName() + "/list";
-    }
-
-    /**
-     * 添加一条数据
-     *
-     * @param t 数据对象
-     * @return 添加后回显视图
-     */
-    @RequestMapping(value = "/insert", method = RequestMethod.GET)
-    public String insert(T t, RedirectAttributes model) {
-        boolean succeed = service.insert(t);
-        if (succeed) {
-            model.addFlashAttribute("msg", "添加成功");
-        } else {
-            model.addFlashAttribute("msg", "添加失败");
-        }
-        return "redirect:" + getModelName() + "/list";
+        return "redirect:/" + getModelName() + "/list";
     }
 
     /**

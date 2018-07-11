@@ -12,10 +12,10 @@ public class Constant {
      * 删除
      */
     @JsonIgnore
-    public final Character UPDATE_DELETE_DELETE = '1';
+    public final Byte UPDATE_DELETE_DELETE = '1';
     /**
      * 正常
      */
     @JsonIgnore
-    public final Character UPDATE_DELETE_NORMA = '0';
+    public final Byte UPDATE_DELETE_NORMA = '0';
 }

@@ -34,6 +34,8 @@
 
         <!-- 设置本地缓存范围 session:就会有数据的共享  statement:语句范围 (这样就不会有数据的共享 ) defalut:session -->
         <setting name="localCacheScope" value="SESSION"/>
+        <!--打印日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
     <typeAliases>
         <package name="com.zhang.modules"/>

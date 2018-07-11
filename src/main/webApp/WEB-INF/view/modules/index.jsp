@@ -22,11 +22,11 @@
                 <div class="container">
                     <a class="brand" href="${ctxPath}/"><b>CarSharing</b></a>
                     <ul class="nav nav_ul">
-                        <li class="active"><a href="${ctxPath}/coord/map">地图</a></li>
+                        <li class="active"><a href="${ctxPath}/map">地图</a></li>
                         <li><a href="${ctxPath}/car/list">车辆</a></li>
                         <li><a href="#">乘客</a></li>
                     </ul>
-                    <a id="login" class="nav" href="#">登陆/注册</a>
+                    <a id="login" class="nav" href="${ctxPath}/user/login">登陆/注册</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="span1"></div>
             <div class="span10">
-                <iframe src="${ctxPath}/coord/map"  marginheight="20px" height="100%" width="100%" scrolling="no" frameborder="0">
+                <iframe src="${ctxPath}/map"  marginheight="20px" height="100%" width="100%" scrolling="no" frameborder="0">
                 </iframe>
             </div>
         </div>
@@ -47,13 +47,20 @@
     </div>
 <script type="text/javascript">
     $(function () {
-        var contextPath = '${ctxPath}';
         $(".nav_ul").on("click",function (e) {
             $(".nav_ul li[class='active']").attr("class","");
-            var path = $(e.target).attr("href");
             var parent = $(e.target).parent();
             parent.attr("class",'active');
+            setIframe(e);
+            return false;
+        });
+        function setIframe(e) {
+            var path = $(e.target).attr("href");
             $("iframe").attr("src",path);
+        }
+        $("#login").on("click",function (e) {
+           console.log( $(".nav_ul li[class='active']").removeAttr("class"));
+            setIframe(e);
             return false;
         });
     });

@@ -8,5 +8,8 @@ import org.apache.log4j.Logger;
  * @Description:
  */
 public class Log {
-    public static final Logger log = Logger.getLogger(Log.class);
+    public static final Logger log;
+    static {
+        log = Logger.getLogger(Log.class);
+    }
 }

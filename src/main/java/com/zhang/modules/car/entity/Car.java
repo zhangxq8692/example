@@ -1,6 +1,7 @@
 package com.zhang.modules.car.entity;
 
 import com.zhang.modules.common.entity.BaseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,14 +29,17 @@ public class Car extends BaseEntity implements Serializable {
     /**
      * 出发时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date departDate;
     /**
      * 最迟出发时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date latestDate;
     /**
      * 发布时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date announceDate;
     /**
      * 可坐人数
@@ -45,6 +49,15 @@ public class Car extends BaseEntity implements Serializable {
      * 已有人数
      */
     private Integer existPerson;
+
+    /**
+     * 经度
+     */
+    private String pLng;
+    /**
+     * 纬度
+     */
+    private String pLat;
     /**
      * 备注
      */
@@ -95,7 +108,11 @@ public class Car extends BaseEntity implements Serializable {
     }
 
     public void setAnnounceDate(Date announceDate) {
-        this.announceDate = announceDate;
+        if (announceDate==null){
+            this.announceDate = new Date();
+        }else {
+            this.announceDate = announceDate;
+        }
     }
 
     public Integer getSumPerson() {
@@ -112,6 +129,22 @@ public class Car extends BaseEntity implements Serializable {
 
     public void setExistPerson(Integer existPerson) {
         this.existPerson = existPerson;
+    }
+
+    public String getpLng() {
+        return pLng;
+    }
+
+    public void setpLng(String pLng) {
+        this.pLng = pLng;
+    }
+
+    public String getpLat() {
+        return pLat;
+    }
+
+    public void setpLat(String pLat) {
+        this.pLat = pLat;
     }
 
     public String getRemark() {

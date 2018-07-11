@@ -30,7 +30,7 @@ public abstract class BaseEntity extends Constant implements Serializable {
     /**
      * 删除标志
      */
-    private Character updateFlag;
+    private Byte deleteFlag;
 
     public String getId() {
         return id;
@@ -56,11 +56,11 @@ public abstract class BaseEntity extends Constant implements Serializable {
         this.updateDate = updateDate;
     }
 
-    public Character getUpdateFlag() {
-        return updateFlag;
+    public Byte getDeleteFlag() {
+        return deleteFlag;
     }
 
-    public void setUpdateFlag(Character updateFlag) {
-        this.updateFlag = updateFlag;
+    public void setDeleteFlag(Byte deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 }

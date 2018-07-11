@@ -2,7 +2,7 @@ package com.zhang.modules.user.dao;
 
 import com.zhang.modules.common.annotation.Mybatis;
 import com.zhang.modules.common.dao.BaseDao;
-import com.zhang.modules.user.entity.User;
+import com.zhang.modules.user.entity.UserInfo;
 
 /**
  * @Auther: Administrator
@@ -10,6 +10,6 @@ import com.zhang.modules.user.entity.User;
  * @Description:
  */
 @Mybatis
-public interface UserDao extends BaseDao<User> {
+public interface UserDao extends BaseDao<UserInfo> {
 
 }

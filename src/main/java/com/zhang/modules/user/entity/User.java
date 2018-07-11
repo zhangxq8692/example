@@ -5,36 +5,46 @@ import com.zhang.modules.common.entity.BaseEntity;
 import java.io.Serializable;
 
 /**
- * @Auther: Administrator
- * @Date: 2018/6/5 0005 14:49
- * @Description: 用户实体类
+ * @Auther: xtiwx
+ * @Date: 2018/07/01 13:51
+ * @Description:
  */
 public class User extends BaseEntity implements Serializable {
-    private String name;
-    private int age;
-    private String sex;
+    /**
+     * 用户名
+     */
+    private String userName;
+    /**
+     * 密码
+     */
+    private String password;
 
-    public String getName() {
-        return name;
+    /**
+     * 用户信息
+     */
+    private UserInfo userInfo;
+
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 
-    public int getAge() {
-        return age;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getSex() {
-        return sex;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

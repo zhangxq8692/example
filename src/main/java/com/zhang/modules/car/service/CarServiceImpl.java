@@ -4,6 +4,7 @@ import com.zhang.modules.car.dao.CarDao;
 import com.zhang.modules.car.entity.Car;
 import com.zhang.modules.common.service.BaseServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Auther: Administrator
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
  * @Description:
  */
 @Service
+@Transactional
 public class CarServiceImpl extends BaseServiceImpl<Car,CarDao> implements CarService {
 
 }
